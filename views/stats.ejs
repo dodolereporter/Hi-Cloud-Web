@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les stations - Hi-Cloud</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/a942685cc8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div id="header-wrapper">
+            <a href="/"><img src="assets/img/logo.png" alt="Logo Hi-Cloud"></a>
+        </div>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/stations">Stations</a>
+            <a href="/team">L'équipe</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <aside>
+            <a href="/login" id="connect">Se connecter</a>
+            <a href="/register" id="register">Créer un compte</a>
+        </aside>
+    </header>
+    <div id="content">
+        <section>
+            <button id="retour" onclick="history.back()">Retour</button>
+            <h1>Statistiques : CESI</h1>
+            <div class="stats">
+                <table>
+                    <tfoot>
+                        <tr>
+                            <th id="-6"></th>
+                            <th id="-5"></th>
+                            <th id="-4"></th>
+                            <th id="-3"></th>
+                            <th id="-2"></th>
+                            <th id="-1"></th>
+                            <th id="now"></th>
+                            <script>
+                                var date = new Date();
+
+                                document.getElementById("now").innerHTML = "Aujourd'hui";
+                                date.setDate(date.getDate() - 3);
+                                document.getElementById("-1").innerHTML = "Hier";
+                                document.getElementById("-2").innerHTML = "Avant-Hier";
+                                document.getElementById("-3").innerHTML = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+                                date.setDate(date.getDate() - 1);
+                                document.getElementById("-4").innerHTML = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+                                date.setDate(date.getDate() - 1);
+                                document.getElementById("-5").innerHTML = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+                                date.setDate(date.getDate() - 1);
+                                document.getElementById("-6").innerHTML = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+                            </script>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td><%- jour6.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour5.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour4.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour3.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour2.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour1.temps.substring(0, 4) %> °C</td>
+                            <td><%- jour0.temps.substring(0, 4) %> °C</td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <% if (jour6.temps < 10) { %>
+                                <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                            <% } %>
+                            <% if (jour6.temps >= 10 && jour6.temps < 30) { %>
+                                <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                            <% } %>
+                            <% if (jour6.temps >= 30) { %>
+                                <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                            <% } %>
+                            </td>
+
+                                <!---->
+                            <td>
+                                <% if (jour5.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour5.temps >= 10 && jour5.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour5.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                                <!---->
+                            <td>
+                                <% if (jour4.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour4.temps >= 10 && jour4.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour4.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                                <!---->
+                            <td>
+                                <% if (jour3.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour3.temps >= 10 && jour3.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour3.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                            <!---->
+                            <td>
+                                <% if (jour2.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour2.temps >= 10 && jour2.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour2.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                            <!---->
+                            <td>
+                                <% if (jour1.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour1.temps >= 10 && jour1.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour1.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                                <!---->
+                            <td>
+                                <% if (jour0.temps < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour0.temps >= 10 && jour0.temps < 30) { %>
+                                    <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (jour0.temps >= 30) { %>
+                                    <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><%- jour6.humids.substring(0, 5) %> %</td>
+                            <td><%- jour5.humids.substring(0, 5) %> %</td>
+                            <td><%- jour4.humids.substring(0, 5) %> %</td>
+                            <td><%- jour3.humids.substring(0, 5) %> %</td>
+                            <td><%- jour2.humids.substring(0, 5) %> %</td>
+                            <td><%- jour1.humids.substring(0, 5) %> %</td>
+                            <td><%- jour0.humids.substring(0, 5) %> %</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <% if (jour6.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour6.humids  >= 30 && jour6.humids  < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour6.humids  >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour5.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour5.humids >= 30 && jour5.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour5.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour4.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour4.humids >= 30 && jour4.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour4.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour3.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour3.humids >= 30 && jour3.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour3.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour2.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour2.humids >= 30 && jour2.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour2.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour1.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour1.humids >= 30 && jour1.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour1.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (jour0.humids < 30 ) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour0.humids >= 30 && jour0.humids < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                                <% if (jour0.humids >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                                <% } %>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h1>Statistiques avancées</h1>
+            <div class="deuxGraphs">
+                <div class="graph">
+                    <div class="myChart">
+                    <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="myChart">
+                    <canvas id="myChart2"></canvas>
+                    </div>
+                    </div>
+
+            </div>
+        </section>
+        <section>
+
+            <h1>Position de la Station</h1>
+
+            <div id="map">
+            </div>
+            <script>
+                var map = L.map('map').setView([45.78301843174615, 4.882698230919594], 17);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+                var circle = L.circle([45.78301843174615, 4.882698230919594], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 20
+                }).addTo(map);
+            </script>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <script>
+
+        var date = new Date();
+
+
+        const jour0 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour1 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour2 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour3 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour4 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour5 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+        date.setDate(date.getDate() - 1);
+        const jour6 = date.getDate().toString().padStart(2, '0')+"/"+(parseInt(date.getMonth())+1).toString().padStart(2, '0');
+
+        const ctx = document.getElementById('myChart2');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [jour6, jour5, jour4, jour3, jour2, jour1, jour0],
+                datasets: [{
+                    label: 'Humidités en %',
+                    data: [<%= jour6.humids %>, <%= jour5.humids %>, <%= jour4.humids %>, <%= jour3.humids %>, <%= jour2.humids %>, <%= jour1.humids %>, <%= jour0.humids %>],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('myChart');
+
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [jour6, jour5, jour4, jour3, jour2, jour1, jour0],
+                datasets: [{
+                    label: 'Températures en °C',
+                    data: [<%= jour6.temps %>, <%= jour5.temps %>, <%= jour4.temps %>, <%= jour3.temps %>, <%= jour2.temps %>, <%= jour1.temps %>, <%= jour0.temps %>],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <footer>
+        <p>&copy; Hi-Cloud <span id="year"></span></p>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();;
+        </script>
+        <aside><a href="#top">Retour en haut</a></aside>
+    </footer>
+</body>
+</html>

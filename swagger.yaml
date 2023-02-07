@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: Hi-Cloud API
+  version: '1.0'
+
+servers:
+  - url: 'http://hicloud:4000/weather'
+    description: Production server
+
+
+tags:
+  - name: Weather
+    description: All weather-related operations.
+
+paths:
+  /weather/lastMean:
+    get:
+      summary: Get last mean weather data
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  temps:
+                    type: string
+                  humids:
+                    type: string
+  /weather/dayMean/{dayMinus}:
+    get:
+      summary: Get mean weather data for the given day
+      parameters:
+        - name: dayMinus
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  temps:
+                    type: string
+                  humids:
+                    type: string
+  /weather/{id}:
+    get:
+      summary: Get weather data by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  date:
+                    type: string
+                  time:
+                    type: string
+                  temp:
+                    type: string
+                  humidity:
+                    type: string
+                  station_id:
+                    type: string
+  /weather:
+    post:
+      summary: Add new weather data request
+      responses:
+        201:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  date:
+                    type: string
+                  time:
+                    type: string
+                  temp:
+                    type: string
+                  humidity:
+                    type: string
+                  station_id:
+                    type: string
+
+components:
+  schemas:
+    WeatherData:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+        time:
+          type: string
+        temp:
+          type: string
+        humidity:
+          type: string
+        station_id:
+          type: string
+    MeanWeatherData:
+      type: object
+      properties:
+        temps:
+          type: string
+        humids:
+          type: string
+    NewWeatherData:
+      type: object
+      properties:
+        temp:
+          type: string
+        humidity:
+          type: string
+        station_id:
+          type: string

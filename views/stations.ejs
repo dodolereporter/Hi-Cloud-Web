@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les stations - Hi-Cloud</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a942685cc8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div id="header-wrapper">
+        <a href="/"><img src="/assets/img/logo.png" alt="Logo Hi-Cloud"></a>
+
+    </div>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/team">L'équipe</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <aside>
+        <a href="/connect" id="connect">Se connecter</a>
+        <a href="/register" id="register">Créer un compte</a>
+    </aside>
+</header>
+<div id="content">
+    <section>
+        <h1>Nos différentes stations météorologiques :</h1>
+        <hr>
+        <div class="station">
+            <a href="/stats">
+                <table>
+                    <thead>
+                    <h2>Station 1 : CESI</h2>
+                    <tr>
+                        <th>Température</th>
+                        <th>Humidité</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><%- temp %> °C</td>
+                        <td><%- humidity %> %</td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <% if (temp < 10) { %>
+                                    <i class="fa-solid fa-temperature-low  fa-2xl"></i>
+                                <% } %>
+                                <% if (temp >= 10 && temp < 30) { %>
+                                        <i class="fa-solid fa-temperature-half  fa-2xl"></i>
+                                <% } %>
+                                <% if (temp >= 30) { %>
+                                        <i class="fa-solid fa-temperature-high  fa-2xl"></i>
+                                <% } %>
+
+
+                        </td>
+                        <td>
+                            <% if (humidity < 30 ) { %>
+                                <i class="fa-solid fa-droplet  fa-xl"></i>
+                            <% } %>
+                            <% if (humidity >= 30 && humidity < 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i><i class="fa-solid fa-droplet  fa-xl"></i>
+                            <% } %>
+                            <% if (humidity >= 70) { %>
+                                    <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>  <i class="fa-solid fa-droplet  fa-xl"></i>
+                            <% } %>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <hr>
+        <div class="station">
+            <table>
+                <thead>
+                <h2>Station 2 : En Cours de Création</h2>
+                <tr>
+                    <th>Température</th>
+                    <th>Humidité</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>N/A °C</td>
+                    <td>N/A %</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+    </section>
+</div>
+<footer>
+    <p>&copy; Hi-Cloud <span id="year"></span></p>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();;
+    </script>
+    <aside><a href="#top">Retour en haut</a></aside>
+</footer>
+</body>
+</html>

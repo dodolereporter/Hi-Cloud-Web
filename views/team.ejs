@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre équipe - Hi-Cloud</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="header-wrapper">
+            <a href="/"><img src="img/pig.png" alt="Logo Hi-Cloud"></a>
+        </div>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/stations">Stations</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <aside>
+            <a href="/login" id="connect">Se connecter</a>
+            <a href="/register" id="register">Créer un compte</a>
+        </aside>
+    </header>
+    <div id="content">
+        <section>
+            <h1>Notre équipe :</h1>
+            <hr>
+            <p>
+                <em>Hi-Cloud</em>, c'est avant tout une équipe de chercheurs expérimentés !<br>
+                Les domaines de la météo et de l'IoT sont nos deux plus grandes passions après le CBD.<br>
+                La température et l'humidité nécessaire pour une bonne récolte doit être suivie de près,<br>
+                notre équipe a développé ses propres capteurs autonomes afin d'automatisé les process de production.
+            </p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; Hi-Cloud <span id="year"></span></p>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();;
+        </script>
+        <aside><a href="#top">Retour en haut</a></aside>
+    </footer>
+</body>
+</html>
