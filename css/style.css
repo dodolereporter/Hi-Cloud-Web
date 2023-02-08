@@ -29,6 +29,7 @@ a,#retour {
   color: var(--text);
   transition: color 250ms;
   transition: transform 250ms;
+  text-decoration: none;
 }
 
 a:active, a:hover {

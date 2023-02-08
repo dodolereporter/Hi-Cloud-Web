@@ -6,13 +6,13 @@ router.get("/", (req, res) => {
 
     let data;
 
-    axios.get('http://localhost:4000/weather/dayMean/0').then(response0 => {
-        axios.get('http://localhost:4000/weather/dayMean/1').then(response1 => {
-            axios.get('http://localhost:4000/weather/dayMean/2').then(response2 => {
-                axios.get('http://localhost:4000/weather/dayMean/3').then(response3 => {
-                    axios.get('http://localhost:4000/weather/dayMean/4').then(response4 => {
-                        axios.get('http://localhost:4000/weather/dayMean/5').then(response5 => {
-                            axios.get('http://localhost:4000/weather/dayMean/6').then(response6 => {
+    axios.get('http://localhost:4000/api/weather/dayMean/0').then(response0 => {
+        axios.get('http://localhost:4000/api/weather/dayMean/1').then(response1 => {
+            axios.get('http://localhost:4000/api/weather/dayMean/2').then(response2 => {
+                axios.get('http://localhost:4000/api/weather/dayMean/3').then(response3 => {
+                    axios.get('http://localhost:4000/api/weather/dayMean/4').then(response4 => {
+                        axios.get('http://localhost:4000/api/weather/dayMean/5').then(response5 => {
+                            axios.get('http://localhost:4000/api/weather/dayMean/6').then(response6 => {
 
 
                                 if (response0.data.temps == "" || response0.data.temps == null) response0.data.temps = '0';

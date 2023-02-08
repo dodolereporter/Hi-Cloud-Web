@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 
     let data;
 
-    const response =  axios.get('http://localhost:4000/weather/lastMean').then(response => {
+    const response =  axios.get('http://localhost:4000/api/weather/lastMean').then(response => {
         data = response.data;
 
         res.render("stations", {
