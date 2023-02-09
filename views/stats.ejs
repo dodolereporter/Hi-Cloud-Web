@@ -15,6 +15,22 @@
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/a942685cc8.js" crossorigin="anonymous"></script>
+    <script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+      
+        return t;
+      }(document, "script", "twitter-wjs"));</script>
 </head>
 <body>
     <header>
@@ -251,6 +267,17 @@
                     </tbody>
                 </table>
             </div>
+            <hr>
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=J'utilise%20Hi-Cloud%20pour%20la%20météo%20!%20Qu'est-ce-que%20c'est%20bien%20!" data-size="large">
+                Tweet
+            </a>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v16.0" nonce="17zpHQjS"></script>
+            <div class="fb-share-button" data-href="https://www.google.com/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+            <br>
+            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: fr_FR</script>
+            <script type="IN/Share" data-url="https://www.google.com/"></script>
+            <hr>
             <h1>Statistiques avancées</h1>
             <div class="deuxGraphs">
                 <div class="graph">

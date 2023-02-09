@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,40 +10,79 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<header>
-  <div id="header-wrapper">
-    <a href="/"><img src="/assets/img/logo.png" alt="Logo Hi-Cloud"></a>
+  <header>
+    <div id="header-wrapper">
+      <a href="/"><img src="/assets/img/logo.png" alt="Logo Hi-Cloud"></a>
+    </div>
+    <nav>
+      <a href="/stations">Stations</a>
+      <a href="/team">L'équipe</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <aside>
+      <a href="/login" id="connect">Se connecter</a>
+      <a href="/register" id="register">Créer un compte</a>
+    </aside>
+  </header>
+  <div id="content">
+    <section>
+      <h1>Bienvenue sur Hi-Cloud !</h1>
+      <hr>
+      <p>
+        <em>Hi-Cloud</em>, c'est votre source fiable pour les prévisions météorologiques!<br>
+        Nous utilisons des sondes météorologiques de pointe, logées dans un packaging en bois recyclé, pour vous fournir
+        les dernières informations sur la météo locale.<br>
+        Que vous soyez sur la plage ou en montagne, vous pouvez compter sur Hi-Cloud pour vous tenir informé et préparé
+        pour toutes les conditions climatiques.
+      </p>
+      <p>Voyez par vous même, c'est <a href="/stations">par ici</a> !</p>
+      <hr>
+      <h2>Une vision moderne</h2>
+      <p>
+        <em>Hi-Cloud</em>, c'est aussi des textes de remplissage 👀<br>
+        Lorsque l'on fait un projet de cours, il faut que la partie fonctionnelle soit réalisée à la perfection,<br>
+        mais que faire du simple contenu vitrine de remplissage ?<br>
+        Celui-ci est écris avec des mots finement trouvés par notre équipe,<br>
+        car un paragraphe random est toujours la meilleure occasion de rappeler l'esprit d'équipe 💪
+      </p>
+      <hr>
+    </section>
+    <section>
+      <h2>Ce qu'ils pensent de nous :</h2>
+      <img src="/assets/img/reviews.png" alt="Reviews de nos plus grands clients" class="reviews">
+      <hr>
+      <img src="/assets/img/reviews.png" alt="Reviews de nos plus grands clients" class="reviews">
+      <hr>
+      <img src="/assets/img/reviews.png" alt="Reviews de nos plus grands clients" class="reviews">
+    </section>
+    <section>
+      <h2>Une question ? Un besoin ?</h2>
+      <p>
+        <em>Contactez nous !</em><br>
+        Nous sommes proche de nos clients et souhaitons améliorer nos systèmes en continu.<br>
+        Un problème sur notre site ? Comment se passe la livraison des sondes ?<br>
+        Notre équipe aura à cœur de vous répondre dans les meilleures conditions.
+      </p>
+      <p>Pour nous contacter, c'est <a href="stations.ejs">par ici</a> !</p>
+      <hr>
+      <h2>Des passionés à votre service</h2>
+      <p>
+        <em>Hi-Cloud</em>, c'est avant tout une équipe de chercheurs expérimentés !<br>
+        Les domaines de la météo et de l'IoT sont nos deux plus grandes passions après le CBD.<br>
+        La température et l'humidité nécessaire pour une bonne récolte doit être suivie de près,<br>
+        notre équipe a développé ses capteurs afin d'automatisé les process de production.
+      </p>
+    </section>
   </div>
-  <nav>
-    <a href="/stations">Stations</a>
-    <a href="/team">L'équipe</a>
-    <a href="/contact">Contact</a>
-  </nav>
-  <aside>
-    <a href="/login" id="connect">Se connecter</a>
-    <a href="/register" id="register">Créer un compte</a>
-  </aside>
-</header>
-<div id="content">
-  <section>
-    <h1>Bienvenue sur Hi-Cloud !</h1>
-    <hr>
-    <p>
-      <em>Hi-Cloud</em>, c'est votre source fiable pour les prévisions météorologiques!<br>
-      Nous utilisons des sondes météorologiques de pointe, logées dans un packaging en bois recyclé, pour vous fournir les dernières informations sur la météo locale.<br>
-      Que vous soyez sur la plage ou en montagne, vous pouvez compter sur Hi-Cloud pour vous tenir informé et préparé pour toutes les conditions climatiques.
-    </p>
-    <p>Voyez par vous même, c'est <a href="/stations">par ici</a> !</p>
-    <hr>
-  </section>
-</div>
-<footer>
-  <p>&copy; Hi-Cloud <span id="year"></span></p>
-  <script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();;
-  </script>
-  <aside><a href="#top">Retour en haut</a></aside>
-</footer>
+  <footer>
+    <p>&copy; Hi-Cloud <span id="year"></span></p>
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    <aside><a href="#top">Retour en haut</a></aside>
+  </footer>
 </body>
+
 </html>
