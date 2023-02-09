@@ -317,7 +317,9 @@
                 datasets: [{
                     label: 'Humidités en %',
                     data: [<%= jour6.humids %>, <%= jour5.humids %>, <%= jour4.humids %>, <%= jour3.humids %>, <%= jour2.humids %>, <%= jour1.humids %>, <%= jour0.humids %>],
-                    borderWidth: 1
+                    borderWidth: 1,
+		    tension: 0.4,
+                    borderColor: 'rgb(75, 192, 192)'
                 }]
             },
             options: {
@@ -339,7 +341,9 @@
                 datasets: [{
                     label: 'Températures en °C',
                     data: [<%= jour6.temps %>, <%= jour5.temps %>, <%= jour4.temps %>, <%= jour3.temps %>, <%= jour2.temps %>, <%= jour1.temps %>, <%= jour0.temps %>],
-                    borderWidth: 1
+                    borderWidth: 1,
+		    tension: 0.4,
+                    borderColor: 'rgb(75, 192, 192)'
                 }]
             },
             options: {

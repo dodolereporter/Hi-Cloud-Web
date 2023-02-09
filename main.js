@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express()
-const port = 8080
+const port = 80
 
 const indexRoute = require("./routes/index")
 const stationsRoute = require("./routes/stations")
 const statsRoute = require("./routes/stats")
 const teamRoute = require("./routes/team")
 const contactRoute = require("./routes/contact")
+const loginRoute = require("./routes/login")
+const registerRoute = require("./routes/register")
 
 const YAML = require('yamljs');
 
@@ -24,6 +26,8 @@ app.use("/stations", stationsRoute)
 app.use("/stats", statsRoute)
 app.use("/team", teamRoute)
 app.use("/contact", contactRoute)
+app.use("/login", loginRoute)
+app.use("/register", registerRoute)
 
 app.use("/css", express.static(__dirname + "/css/"));
 app.use("/js", express.static(__dirname + "/js/"));
