@@ -1,6 +1,8 @@
 const express = require("express");
+const bodyParser = require('body-parser');
+
 const app = express()
-const port = 80
+const port = 8080
 
 const indexRoute = require("./routes/index")
 const stationsRoute = require("./routes/stations")
@@ -10,10 +12,13 @@ const contactRoute = require("./routes/contact")
 const loginRoute = require("./routes/login")
 const registerRoute = require("./routes/register")
 
+
 const YAML = require('yamljs');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = YAML.load('./swagger.yaml');
+
+
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDocument));

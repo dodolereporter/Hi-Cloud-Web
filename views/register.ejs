@@ -29,9 +29,12 @@
         <section>
             <h1>Créer un compte</h1>
             <hr>
-            <form action="account.ejs" method="post">
-                <label for="mail">Mail :</label>
-                <input type="email" name="mail" id="mail" placeholder="mail@hi-cloud.fr" required>
+            <form action="/register" id="form" method="POST">
+                <label for="username">Nom d'Utilisateur :</label>
+                <input type="text" name="username" id="username" placeholder="jeandu69" required>
+                <br>
+                <label for="email">Mail :</label>
+                <input type="email" name="email" id="email" placeholder="mail@hi-cloud.fr" required>
                 <br>
                 <label for="password">Mot de passe :</label>
                 <input type="password" name="password" id="password" placeholder="S4fe;P4ssw0rD" required>
