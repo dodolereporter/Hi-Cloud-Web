@@ -1,4 +1,4 @@
-<!DOCTYPE html>connect
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -29,16 +29,16 @@
         <section>
             <h1>Se connecter</h1>
             <hr>
-            <form action="account.ejs" method="post">
-                <label for="mail">Mail :</label>
-                <input type="email" name="mail" id="mail" placeholder="mail@hi-cloud.fr" required>
+            <form action="/login" method="post">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" name="username" id="username" placeholder="jean" required>
                 <br>
                 <label for="password">Mot de passe :</label>
                 <input type="password" name="password" id="password" placeholder="S4fe;P4ssw0rD" required>
                 <br>
                 <button type="submit">Envoyer</button>
             </form>
-        </section>        
+        </section>
     </div>
     <footer>
         <p>&copy; Hi-Cloud <span id="year"></span></p>
@@ -46,6 +46,6 @@
             document.getElementById("year").innerHTML = new Date().getFullYear();;
         </script>
         <aside><a href="#top">Retour en haut</a></aside>
-    </footer> 
+    </footer>
 </body>
 </html>

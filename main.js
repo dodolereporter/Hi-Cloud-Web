@@ -11,6 +11,8 @@ const teamRoute = require("./routes/team")
 const contactRoute = require("./routes/contact")
 const loginRoute = require("./routes/login")
 const registerRoute = require("./routes/register")
+const accountRoute = require("./routes/account")
+const logoutRoute = require("./routes/logout")
 
 
 const YAML = require('yamljs');
@@ -33,6 +35,8 @@ app.use("/team", teamRoute)
 app.use("/contact", contactRoute)
 app.use("/login", loginRoute)
 app.use("/register", registerRoute)
+app.use("/account", accountRoute)
+app.use("/logout", logoutRoute)
 
 app.use("/css", express.static(__dirname + "/css/"));
 app.use("/js", express.static(__dirname + "/js/"));

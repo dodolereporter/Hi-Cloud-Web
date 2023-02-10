@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon compte - Hi-Cloud</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 </head>
@@ -26,7 +26,7 @@
     </header>
     <div id="content">
         <section>
-            <h1>Bienvenue sur votre compte CompteHowner !</h1>
+            <h1>Bienvenue sur votre compte <%= username %> !</h1>
             <hr>
             <p>
                 Ici, vous pourrez voir les sondes dont vous disposez et en commander de nouvelles.<br>
@@ -34,7 +34,7 @@
                 N'hésitez pas à modifier votre mot de passe régulièrement, conformément aux recommendations de la CNIL vis-à-vis des bonnes pratiques à adopter sur internet.
             </p>
             <p>Pour retourner aux stations, c'est <a href="stations.ejs">par ici</a> !</p>
-        </section>        
+        </section>
     </div>
     <footer>
         <p>&copy; Hi-Cloud <span id="year"></span></p>
@@ -42,6 +42,6 @@
             document.getElementById("year").innerHTML = new Date().getFullYear();;
         </script>
         <aside><a href="#top">Retour en haut</a></aside>
-    </footer> 
+    </footer>
 </body>
 </html>
