@@ -127,7 +127,17 @@ section {
   font-weight: bold;
 }
 
-#content p {
+#content h2 {
+  padding: 3%;
+  padding-bottom: 1%;
+  margin: auto;
+  font-size: 4vmin;
+  width: 80%;
+  color: var(--title);
+  font-weight: bold;
+}
+
+#content p,li {
   padding: 2%;
   margin: auto;
   line-height: 5vmin;
@@ -349,4 +359,12 @@ footer a {
   margin: auto;
   margin-right: 2vmin;
   text-align: right;
+}
+
+.reviews {
+  margin: 4vmin;
+  width: 100vmin;
+  height: auto;
+  border-radius: 2vmin;
+  transition: transform 500ms;
 }
